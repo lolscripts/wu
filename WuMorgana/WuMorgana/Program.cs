@@ -88,95 +88,95 @@ namespace WuMorgana
 
             //---------------------------||   Menu   ||----------------------------
 
-            Menu = MainMenu.AddMenu("Wu" + CN, "Wu" + CN);
+            Menu = MainMenu.AddMenu("Morgana - Lolscript.net" + CN, "Morgana - Lolscript.net" + CN);
 
             //------------------------------Combo-------------------------------
             
             Menu.AddGroupLabel("Combo");
             {
-                Menu.Add("UseQCombo", new CheckBox("Use Q Combo"));
+                Menu.Add("UsarQCombo", new CheckBox("Usar Q Combo"));
                 Menu.Add("QHitChanceCombo", new Slider("QHitChance:", 75, 0, 100));
-                Menu.Add("UseWCombo", new CheckBox("Use W Combo"));
-                Menu.Add("UseRCombo", new CheckBox("Use R Combo"));
-                Menu.Add("Min Enemies R", new Slider("Min Enemies R", 2, 1, 5));
-                Menu.Add("UseExhaust?", new CheckBox("Use Exhaust?"));
+                Menu.Add("UsarWCombo", new CheckBox("Usar W Combo"));
+                Menu.Add("UsarRCombo", new CheckBox("Usar R Combo"));
+                Menu.Add("Min Enemies R", new Slider("Enemigos minimos R", 2, 1, 5));
+                Menu.Add("UsarExtenuar?", new CheckBox("Usar Extenuar?"));
             }
             Menu.AddSeparator();
 
             //------------------------------Harass-------------------------------
 
-            Menu.AddGroupLabel("Harass");
+            Menu.AddGroupLabel("Tirar");
             {
-                Menu.Add("UseQHarass", new CheckBox("Use Q Harass"));
-                Menu.Add("QHitChanceHarass", new Slider("QHitChance:", 75, 0, 100));
-                Menu.Add("UseWHarass", new CheckBox("Use W Harass"));
-                Menu.Add("Harass, Mana %", new Slider("Harass, Mana %", 30, 1, 100));
+                Menu.Add("UsarQTirar", new CheckBox("Usar Q Tirar"));
+                Menu.Add("QHitChanceTirar", new Slider("QHitChance:", 75, 0, 100));
+                Menu.Add("UsarWTirar", new CheckBox("Usar W Tirar"));
+                Menu.Add("Tirar, Mana %", new Slider("Tirar, Mana %", 30, 1, 100));
             }
             Menu.AddSeparator();
 
             //------------------------------LaneClear-------------------------------
 
-            Menu.AddGroupLabel("LaneClear");
+            Menu.AddGroupLabel("LimpiarLinea");
             {
-                Menu.Add("UseWLaneClear", new CheckBox("Use W LaneClear"));
-                Menu.Add("Min Minions W", new Slider("Min Minions W", 3, 1, 7));
-                Menu.Add("LaneClear, Mana %", new Slider("LaneClear, Mana %", 30, 1, 100));
+                Menu.Add("UsarWLimpiarLinea", new CheckBox("Usar W LimpiarLinea"));
+                Menu.Add("Min minioms W", new Slider("Min Minions W", 3, 1, 7));
+                Menu.Add("LimpiarLinea, Mana %", new Slider("LimpiarLinea, Mana %", 30, 1, 100));
             }
             Menu.AddSeparator();
 
             //------------------------------Drawings-------------------------------
 
-            Menu.AddGroupLabel("Drawings");
+            Menu.AddGroupLabel("Circulos");
             {
                 Menu.Add("DrawQ", new CheckBox("Draw Q"));
                 Menu.Add("DrawW", new CheckBox("Draw W", false));
                 Menu.Add("DrawE", new CheckBox("Draw E"));
                 Menu.Add("DrawR", new CheckBox("Draw R", false));
-                Menu.Add("ComboDamage on HPBar", new CheckBox("ComboDamage on HPBar"));
+                Menu.Add("DañodeCombo en HPBar", new CheckBox("DañodeCombo en HPBar"));
             }
             Menu.AddSeparator();
 
             //------------------------------Other things-------------------------------
 
-            Menu.AddGroupLabel("Other things");
+            Menu.AddGroupLabel("Otras cosas");
 
             Menu.Add("JustWOnImmobile", new CheckBox("Just use W on immobile enemies"));
             Menu.Add("KS", new CheckBox("KS", false));
             Menu.Add("AAMinions?", new CheckBox("AA minions when ally near?", false));
             Menu.Add("Gapcloser", new CheckBox("Gapcloser"));
             Menu.Add("Auto Ignite", new CheckBox("Auto Ignite"));
-            Menu.Add("AutoQFlash", new CheckBox("Auto Q on flash"));
-            Menu.Add("AutoQDash", new CheckBox("Auto Q on dashing"));
-            Menu.Add("AutoQImmobile", new CheckBox("Auto Q on immobile"));
-            Menu.Add("AutoWImmobile", new CheckBox("Auto W on immobile"));
+            Menu.Add("AutoQFlash", new CheckBox("Auto Q en flash"));
+            Menu.Add("AutoQapuesto", new CheckBox("Auto Q en apuesto"));
+            Menu.Add("AutoQinmovil", new CheckBox("Auto Q en inmovil"));
+            Menu.Add("AutoWinmovil", new CheckBox("Auto W eon inmovil"));
             Menu.AddSeparator();
-            Menu.Add("UseHeal?", new CheckBox("Use Heal?"));
-            Menu.Add("HealHealth", new Slider("Auto Heal when Health% is at:", 20, 1, 100));
+            Menu.Add("UsarHeal?", new CheckBox("Usar Heal?"));
+            Menu.Add("HealHealth", new Slider("Heal automático cuando la Salud % is at:", 20, 1, 100));
             Menu.AddSeparator();
-            Menu.Add("UseZhonya?", new CheckBox("Use Zhonya?"));
-            Menu.Add("ZhonyaUlt", new CheckBox("Just Zhonya when casting ultimate", false));
-            Menu.Add("ZhonyaHealth", new Slider("Auto Zhonya when Health% is at:", 15, 1, 100));
+            Menu.Add("UseZhonya?", new CheckBox("Usar Zhonya?"));
+            Menu.Add("ZhonyaUlt", new CheckBox("Sólo Zhonya al lanzar último", false));
+            Menu.Add("ZhonyaHealth", new Slider("Zhonya automático cuando la Salud% is at:", 15, 1, 100));
             
             Menu.AddSeparator();
 
             //---------------------------------------||   EMenu   ||------------------------------------------
 
-            EMenu = Menu.AddSubMenu("E Options", "E Options");
+            EMenu = Menu.AddSubMenu("E Opciones", "E Opciones");
             EMenu.AddSeparator();
 
             foreach (var ally in EntityManager.Heroes.Allies)
             {
-                EMenu.Add(ally.BaseSkinName, new Slider(string.Format("{0}'s Priority", ally.BaseSkinName), 3, 1, 5));
+                EMenu.Add(ally.BaseSkinName, new Slider(string.Format("{0}'s Prioridad", ally.BaseSkinName), 3, 1, 5));
                 EMenu.AddSeparator();
             }
 
             EMenu.AddSeparator();
 
-            EMenu.Add("UseShield?", new CheckBox("Use Shield?"));
+            EMenu.Add("UsarBarrera?", new CheckBox("Usar barrera?"));
 
             EMenu.AddSeparator();
 
-            EMenu.AddGroupLabel("Use shield for:");
+            EMenu.AddGroupLabel("Usar barrera por:");
 
             EMenu.AddSeparator();
 
